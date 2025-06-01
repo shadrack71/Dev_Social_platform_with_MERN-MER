@@ -4,10 +4,9 @@ const gravatar = require('gravatar')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const config = require('config')
-
-
 const { query ,check , validationResult } = require('express-validator')
 const User = require('../models/User')
+
 // @route Post api/users 
 // @desc register user route
 // access public
@@ -55,23 +54,14 @@ router.post('/' , [
             { expiresIn : 360000},
             (err, token)=>{
                 if(err) throw err
-
                 res.json({ token })
             }
         )
-        
         // res.status(200).send('user registered')
-
     }catch(err){
         console.error(err.message)
         res.status(500).send('Server error')
-
     }
-
 })
-
-
-
-
 
 module.exports = router

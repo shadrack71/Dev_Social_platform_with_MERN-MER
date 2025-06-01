@@ -5,10 +5,7 @@ const User = require('../models/User')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const config = require('config')
-
-
-const { query ,check , validationResult } = require('express-validator')
-
+const {check , validationResult } = require('express-validator')
 
 // @route GET api/auth 
 // @desc Test route
@@ -22,8 +19,6 @@ router.get('/' , auth , async (req,res) =>{
     }catch(err){
         console.error(err.message)
         res.status(500).send('server error')
-
-
     }
 
 })
@@ -65,7 +60,6 @@ router.post('/' , [
             { expiresIn : 360000},
             (err, token)=>{
                 if(err) throw err
-
                 res.json({ token })
             }
         )
