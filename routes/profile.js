@@ -102,7 +102,7 @@ router.post('/', [auth,[
 
 // @route GET api/profile
 // @desc  get all profile
-// access profile
+// access public
 
 router.get('/', async(req,res)=>{
     try {
@@ -118,7 +118,7 @@ router.get('/', async(req,res)=>{
 
 // @route GET api/profile/user/:user_id
 // @desc  get  profile by user id
-// access profile
+// access public
 
 router.get('/user/:user_id', async(req,res)=>{
     try {
@@ -135,6 +135,26 @@ router.get('/user/:user_id', async(req,res)=>{
         res.status(500).send('Server error')
     }
 })
+// @route DELETE api/profile
+// @desc  DELETE  profile profile , user & post
+// access private
 
+router.delete('/',auth , async(req,res)=>{
+    try {
+        //remove profile 
+        // @todo remove user pist
+        await Profile.findOneAndDelete({ user :req.user.id})
+        await User.findOneAndDelete({ _id :req.user.id})
+        
+        res.json({msg:'user delete'})
+        
+    } catch (err) {
+        console.error(err.message)
+        if(err.kind == 'ObjectId'){
+            res.status(400).json({msg:' no profile found'})
+        }
+        res.status(500).send('Server error')
+    }
+})
 
 module.exports = router
