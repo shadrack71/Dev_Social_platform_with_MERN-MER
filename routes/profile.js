@@ -126,7 +126,7 @@ router.get('/user/:user_id', async(req,res)=>{
         if(!profile) return res.status(400).json({msg:'There is no profile for this user'})
 
         res.json(profile)
-        
+
     } catch (err) {
         console.error(err.message)
         if(err.kind == 'ObjectId'){
@@ -135,6 +135,7 @@ router.get('/user/:user_id', async(req,res)=>{
         res.status(500).send('Server error')
     }
 })
+
 // @route DELETE api/profile
 // @desc  DELETE  profile profile , user & post
 // access private
@@ -179,8 +180,7 @@ router.put('/experience',[auth,[
             location,
             to,
             current,
-            description
-            
+            description 
         } = req.body
 
     const newExp = {
@@ -191,7 +191,7 @@ router.put('/experience',[auth,[
         to,
         current,
         description
-    };
+    }
     try {
         const profile = await Profile.findOne({user:req.user.id})
         if(!profile) return res.json({msg:'profile not found'})
