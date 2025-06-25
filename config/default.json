@@ -1,4 +1,5 @@
 {
     "mongoURI":"mongodb+srv://shadrackkinsimba:@devsocialplatform.5afqncp.mongodb.net/?retryWrites=true&w=majority&appName=DevSocialplatform",
     "jwtSecret":"mysecrettoken"
+    
 }
