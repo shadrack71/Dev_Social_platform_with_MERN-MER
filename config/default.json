@@ -1,5 +1,6 @@
 {
-    "mongoURI":"mongodb+srv://shadrackkinsimba:@devsocialplatform.5afqncp.mongodb.net/?retryWrites=true&w=majority&appName=DevSocialplatform",
-    "jwtSecret":"mysecrettoken"
-    
+    "mongoURI":"mongodb+srv://shadrackkinsimba:MrfgNPCIErsppSD9@devsocialplatform.5afqncp.mongodb.net/?retryWrites=true&w=majority&appName=DevSocialplatform",
+    "jwtSecret":"mysecrettoken",
+    "githubClientId":"Ov23cts1UwJeQpxAq2R4",
+    "githubSecret":"8b0da5eb85b7fc03d2d0436c9beb58feaa9ce3ac"
 }
