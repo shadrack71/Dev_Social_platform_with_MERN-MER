@@ -5,7 +5,7 @@ import {configureStore } from '@reduxjs/toolkit'
 import rootReducer from './reducers'
 
 
-const intialState = {}
+const initialState = {}
 
 // const middleware = [thunk]
 
@@ -18,7 +18,7 @@ const intialState = {}
 
 const store = configureStore({
   reducer: rootReducer,
-  preloadedState: intialState,
+  preloadedState: initialState,
 //   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(middleware),
 //   devTools: process.env.NODE_ENV !== 'production'
 });
